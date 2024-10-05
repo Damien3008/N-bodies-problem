@@ -127,18 +127,21 @@ def animation_2D(n , T , name , methode , time_annimation , step):
                 plt.pause(step)
             end = time.time()
             
-            
-def show_3D(n , T , name , methode) :
+
+def show_3D(n, T, name, method):
+    # Create a 3D plot
     fig = plt.figure("Graphic Representation")
-    ax = fig.gca(projection = '3d')
-    for i in range(0 , n , 1) :  
-        ax.plot(T[6 * i + 3 , :] , T[6 * i + 4 , :] , T[6 * i + 5 , :], label = 'trajectory of {}'.format(name[i]))
-        ax.scatter(T[6 * i + 3 , 0] , T[6 * i + 4 , 0] , T[6 * i + 5 , 0])
-        
+    ax = fig.add_subplot(111, projection='3d')
+    
+    for i in range(n):
+        ax.plot(T[6 * i + 3, :], T[6 * i + 4, :], T[6 * i + 5, :], label=f'Trajectory of {name[i]}')
+        ax.scatter(T[6 * i + 3, 0], T[6 * i + 4, 0], T[6 * i + 5, 0], label=f'Start of {name[i]}')
+
     ax.set_xlabel('X (in astronomical units)')
-    ax.set_ylabel('Y (in astronomical units)') 
+    ax.set_ylabel('Y (in astronomical units)')
     ax.set_zlabel('Z (in astronomical units)')
-    plt.title('Numerical representation for the problem with {} bodies with the method of {}'.format(n , methode))
+    plt.title(f'Numerical representation for the problem with {n} bodies using {method}')
+    
     plt.legend()
     plt.show()
 
@@ -169,7 +172,7 @@ G = 1.4872 * 10 ** -34
 methode = "Runge_Kutta_4" 
 S = ['Voyager 2' , 'solar system' , 'halley' , 'Voyager 1']
 systeme = S[1] 
-time_day = 365 # one year
+time_day = 10000 # one year
 step = 0.1
 time_annimation = 20 # seconds
 
