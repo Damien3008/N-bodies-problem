@@ -8,7 +8,7 @@
 A stunning Python-based interactive simulation of the N-body gravitational problem, featuring real astronomical data and multiple numerical integration methods. Watch the dance of planets, trace historic space missions, and explore the cosmos! 🚀
 
 <div style="border-radius: 10px; overflow: hidden; margin: 20px 0;">
-    <img src="asset/simulation_example.gif" alt="N-Body Simulation Demo" width="800"/>
+    <img src="asset/simulation_example.png" alt="N-Body Simulation Demo" width="800"/>
 </div>
 
 </div>
