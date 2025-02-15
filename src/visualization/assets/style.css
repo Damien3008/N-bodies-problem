@@ -1,0 +1,382 @@
+/* Main container */
+.dashboard-container {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #1f2630;
+    color: #7fafdf;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-title {
+    color: #7fafdf;
+    margin: 0;
+    padding: 20px 0;
+    font-size: 2.5em;
+}
+
+.dashboard-description {
+    color: #a8b9c9;
+    font-size: 1.2em;
+    margin: 0;
+}
+
+/* Main content layout */
+.main-content {
+    display: flex;
+    gap: 20px;
+    height: calc(100vh - 150px);
+}
+
+/* Control panel */
+.left-panel {
+    flex: 0 0 300px;
+    background-color: #2d3339;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.right-panel {
+    flex: 1;
+    background-color: #2d3339;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-height: 600px;  /* Ensure minimum height */
+}
+
+.control-title {
+    color: #7fafdf;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.control-label {
+    display: block;
+    color: #a8b9c9;
+    margin: 15px 0 5px;
+    font-weight: 500;
+}
+
+.control-dropdown {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+/* Parameters section */
+.parameters-container {
+    background-color: #262b32;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.param-group {
+    margin-bottom: 10px;
+}
+
+.param-label {
+    display: block;
+    color: #a8b9c9;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.param-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #3d4550;
+    border-radius: 4px;
+    background-color: #1f2630;
+    color: #7fafdf;
+}
+
+/* Run button */
+.run-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.run-button:hover {
+    background-color: #45a049;
+}
+
+/* Status message */
+.status-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #262b32;
+    font-size: 0.9em;
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .left-panel {
+        flex: none;
+        width: auto;
+    }
+}
+
+.trajectory-plot {
+    height: 100%;  /* Make plot fill container */
+}
+
+.view-selector {
+    margin: 10px 0;
+    display: flex;
+    gap: 20px;
+}
+
+.animate-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.animate-button:hover {
+    background-color: #1976D2;
+}
+
+.animation-container {
+    background-color: #262b32;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.animation-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.speed-control {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #1f2630;
+    border-radius: 5px;
+}
+
+.speed-label {
+    display: block;
+    color: #a8b9c9;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.speed-slider {
+    margin-top: 5px;
+}
+
+/* Style the slider */
+.speed-slider .rc-slider-rail {
+    background-color: #3d4550;
+}
+
+.speed-slider .rc-slider-track {
+    background-color: #2196F3;
+}
+
+.speed-slider .rc-slider-handle {
+    border: solid 2px #2196F3;
+    background-color: #fff;
+}
+
+.speed-slider .rc-slider-mark-text {
+    color: #a8b9c9;
+}
+
+/* Add Font Awesome for the info icon */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+/* Method info styling */
+.method-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.method-selector {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.info-container {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.info-container i {
+    color: #7fafdf;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.info-container:hover i {
+    color: #2196F3;
+}
+
+.info-tooltip {
+    display: none;
+    position: absolute;
+    left: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #1f2630;
+    border: 1px solid #3d4550;
+    border-radius: 5px;
+    padding: 10px;
+    width: 250px;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.info-container:hover .info-tooltip {
+    display: block;
+}
+
+.info-description {
+    margin: 0 0 8px 0;
+    color: #a8b9c9;
+    font-size: 0.9em;
+    line-height: 1.4;
+}
+
+.info-precision {
+    margin: 0;
+    font-weight: 500;
+    font-size: 0.9em;
+}
+
+/* Add arrow to tooltip */
+.info-tooltip::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 6px 6px 0;
+    border-style: solid;
+    border-color: transparent #3d4550 transparent transparent;
+}
+
+/* Method selection styling */
+.method-buttons-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.method-button-container {
+    position: relative;
+}
+
+.method-button {
+    padding: 8px 16px;
+    background-color: #1f2630;
+    color: #7fafdf;
+    border: 1px solid #3d4550;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.method-button i {
+    font-size: 1em;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.method-button:hover i {
+    opacity: 1;
+}
+
+.method-button.active {
+    background-color: #2196F3;
+    color: white;
+    border-color: #2196F3;
+}
+
+.info-icon {
+    position: relative;
+    display: inline-block;
+    color: #7fafdf;
+    cursor: help;
+}
+
+.info-icon i {
+    font-size: 1em;
+    transition: color 0.3s;
+}
+
+.info-icon:hover i {
+    color: #2196F3;
+}
+
+.method-tooltip {
+    visibility: hidden;
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+    padding: 8px 12px;
+    background-color: #1f2630;
+    border: 1px solid #3d4550;
+    border-radius: 4px;
+    width: 200px;
+    color: #a8b9c9;
+    font-size: 0.85em;
+    line-height: 1.4;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+
+.method-button-container:hover .method-tooltip {
+    visibility: visible;
+}
+
+/* Add arrow to tooltip */
+.method-tooltip::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-width: 6px 6px 6px 0;
+    border-style: solid;
+    border-color: transparent #3d4550 transparent transparent;
+} 
